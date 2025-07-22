@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Click to Earn - Nobab</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { background: #111; color: #fff; text-align: center; padding: 30px; font-family: sans-serif; }
+    .container { background: #222; margin: auto; padding: 20px; border-radius: 12px; max-width: 400px; }
+    h1 { font-size: 24px; }
+    p { color: #ccc; }
+    #ad-slot { background: #333; height: 120px; margin: 20px 0; display: flex; justify-content: center; align-items: center; color: #888; }
+    button { background: #00cc66; color: #fff; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #00b359; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👑 Click & Earn</h1>
+    <p>Watch ads, then click to earn points!</p>
+    <div id="ad-slot">[Ad Loading…]</div>
+    <button onclick="claimReward()">✅ Claim Reward</button>
+  </div>
+
+  <!-- Monetag Ad Script -->
+  <script>
+  (s => {
+    s.dataset.zone = '9611789';
+    s.src = 'https://al5sm.com/tag.min.js';
+  })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
+  </script>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    async function claimReward() {
+      const user_id = tg.initDataUnsafe.user?.id;
+      if (!user_id) return tg.showAlert("⚠️ User ID not found!");
+
+      const res = await fetch("https://click-to-earn-backend-1.onrender.com/api/claim", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id }),
+      });
+
+      const json = await res.json();
+      tg.showAlert(json.message);
+    }
+  </script>
+</body>
+</html>
