@@ -406,7 +406,7 @@
 
     const pointsPerAd = 1;
 
-    const ratePerPoint = 0.50;
+    const ratePerPoint = 0.5;
 
 
 
@@ -572,7 +572,7 @@
 
             if (tgUser.photo_url) {
 
-                profilePicDiv.innerHTML = `<img src="${tgUser.photo_url}" alt="P">`;
+                profilePicDiv.innerHTML = `<img src="৳{tgUser.photo_url}" alt="P">`;
 
             } else {
 
@@ -628,13 +628,13 @@
 
                 <div class="list-item">
 
-                    <div class="history-icon">${icon}</div>
+                    <div class="history-icon">৳{icon}</div>
 
                     <div class="info">
 
-                        <div class="name">${item.detail}</div>
+                        <div class="name">৳{item.detail}</div>
 
-                        <div class="detail">${new Date(item.timestamp).toLocaleString()}</div>
+                        <div class="detail">৳{new Date(item.timestamp).toLocaleString()}</div>
 
                     </div>
 
@@ -672,11 +672,11 @@
 
                 <div class="rank">#${index + 1}</div>
 
-                <img src="${user.avatar}" class="avatar" alt="Avatar">
+                <img src="৳{user.avatar}" class="avatar" alt="Avatar">
 
-                <div class="info"><div class="name">${user.name}</div></div>
+                <div class="info"><div class="name">৳{user.name}</div></div>
 
-                <div class="score">${user.score} pts</div>
+                <div class="score">৳{user.score} pts</div>
 
             </div>
 
@@ -696,13 +696,13 @@
 
         updateDisplay();
 
-        addToHistory('earn', `+${pointsPerAd} Point(s) from Ad`);
+        addToHistory('earn', `+৳{pointsPerAd} Point(s) from Ad`);
 
         saveData();
 
         Telegram.WebApp.HapticFeedback.notificationOccurred('success');
 
-        alert(`Congratulations! You've earned +${pointsPerAd} point. Your new balance is $${balance.toFixed(2)}.`);
+        alert(`Congratulations! You've earned +৳{pointsPerAd} point. Your new balance is $${balance.toFixed(2)}.`);
 
     }
 
@@ -762,9 +762,9 @@
 
         const adminUserId = '5988572342';
 
-        const userInfo = tgUser ? `@${tgUser.username} (ID: ${tgUser.id})` : 'Unknown User';
+        const userInfo = tgUser ? `@৳{tgUser.username} (ID: ৳{tgUser.id})` : 'Unknown User';
 
-        const message = `💸 *Withdrawal Request*\n\n👤 *User:* ${userInfo}\n💰 *Amount:* $${balance.toFixed(2)}\n\n_Please process this request._`;
+        const message = `💸 *Withdrawal Request*\n\n👤 *User:* ৳{userInfo}\n💰 *Amount:* ৳৳{balance.toFixed(2)}\n\n_Please process this request._`;
 
 
 
