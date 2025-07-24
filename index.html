@@ -406,7 +406,7 @@
 
     const pointsPerAd = 1;
 
-    const ratePerPoint = 0.005;
+    const ratePerPoint = 0.50;
 
 
 
@@ -554,7 +554,7 @@
 
         document.getElementById('points-value').textContent = points;
 
-        document.getElementById('balance-value').textContent = `৳${balance.toFixed(2)}`;
+        document.getElementById('balance-value').textContent = `৳{balance.toFixed(2)}`;
 
     }
 
@@ -736,7 +736,7 @@
 
             Telegram.WebApp.HapticFeedback.notificationOccurred('error');
 
-            return alert("Minimum withdrawal amount is $5.00. Keep earning!");
+            return alert("Minimum withdrawal amount is ৳5.00. Keep earning!");
 
         }
 
