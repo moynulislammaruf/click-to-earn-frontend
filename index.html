@@ -522,7 +522,7 @@
 
     function loadData() {
 
-        const savedData = localStorage.getItem('http://127.0.0.1:5000/update_user');
+        const savedData = localStorage.getItem('easyEarningBotV2');
 
         if (savedData) {
 
@@ -544,7 +544,7 @@
 
     function saveData() {
 
-        localStorage.setItem('http://127.0.0.1:5000/update_user', JSON.stringify({ points, balance, historyLog }));
+        localStorage.setItem('easyEarningBotV2', JSON.stringify({ points, balance, historyLog }));
 
     }
 
