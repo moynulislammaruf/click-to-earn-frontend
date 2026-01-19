@@ -501,5 +501,37 @@
         function openSupport() { if(appState.config.supportLink) tg.openLink(appState.config.supportLink); else toast("No Support Link"); }
         function toast(m) { const t = document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
     </script>
+
+      <script src="https://js.monetag.com/tag.js"></script>
+</head>
+
+<body>
+
+  <h3>My Telegram Mini App</h3>
+  <button onclick="showAd()">Show Ad</button>
+
+  <!-- Monetag In-App Interstitial Call -->
+  <script>
+    function showAd() {
+      if (typeof show_9606399 !== "undefined") {
+        show_9606399({
+          type: 'inApp',
+          inAppSettings: {
+            frequency: 2,
+            capping: 0.1,   // 6 minutes
+            interval: 30,   // 30 seconds
+            timeout: 5,     // 5 seconds delay
+            everyPage: false
+          }
+        });
+      }
+    }
+
+    // Optional: auto show after page load
+    window.onload = function () {
+      setTimeout(showAd, 500);
+    };
+  </script>
+
 </body>
 </html>
