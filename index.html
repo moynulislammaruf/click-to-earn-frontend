@@ -198,26 +198,42 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <script src="https://js.monetag.com/tag.js"></script>
+    <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <script>
-  window.onload = function () {
-    setTimeout(function () {
+  <!-- Monetag Main Script (REQUIRED) -->
+  <script src="https://js.monetag.com/tag.js"></script>
+</head>
+
+<body>
+
+  <h3>Click To Earn By Nobab</h3>
+  <button onclick="showAd()"> </button>
+
+  <!-- Monetag In-App Interstitial Call -->
+  <script>
+    function showAd() {
       if (typeof show_9606399 !== "undefined") {
         show_9606399({
           type: 'inApp',
           inAppSettings: {
             frequency: 2,
-            capping: 0.1,
-            interval: 30,
-            timeout: 5,
+            capping: 0.1,   // 6 minutes
+            interval: 30,   // 30 seconds
+            timeout: 5,     // 5 seconds delay
             everyPage: false
           }
         });
       }
-    }, 1000); // 3 সেকেন্ড পরে অ্যাড
-  };
-    </script>
+    }
+
+    // Optional: auto show after page load
+    window.onload = function () {
+      setTimeout(showAd, 1000);
+    };
+  </script>
+
+</body>
     
     <script>
         // CONFIG: CLOUDFLARE WORKER URL
