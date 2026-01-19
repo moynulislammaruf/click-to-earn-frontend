@@ -364,6 +364,7 @@
             }).catch(() => toast("Failed/Closed"));
         }
 
+        
         // --- TASKS ---
         function renderTasks() {
             const el = document.getElementById('task-area'); el.innerHTML = '';
@@ -503,4 +504,18 @@
         function toast(m) { const t = document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
     </script>
 </body>
+    
+    <script>
+show_9606399({
+  type: 'inApp',
+  inAppSettings: {
+    frequency: 2,
+    capping: 0.1,
+    interval: 30,
+    timeout: 5,
+    everyPage: false
+  }
+});
+</script>
+    
 </html>
