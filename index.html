@@ -364,6 +364,46 @@
             }).catch(() => toast("Failed/Closed"));
         }
 
+            // --- Initialize Automatic Ads ---
+
+    function initializeInAppAds() {
+
+        if (typeof show_9606399 === 'function') {
+
+            // In-App Interstitial - runs automatically in the background
+
+            show_9606399({
+
+              type: 'inApp',
+
+              inAppSettings: {
+
+                frequency: 2,
+
+                capping: 0.1,
+
+                interval: 30,
+
+                timeout: 5,
+
+                everyPage: false // `false` is important for single-page apps like this
+
+              }
+
+            });
+
+            console.log("Automatic In-App Interstitial Ads Initialized.");
+
+        } else {
+
+            console.warn("Monetag SDK not ready for In-App Ads. Retrying...");
+
+            setTimeout(initializeInAppAds, 2000); // Retry after 2 seconds if SDK is not loaded yet
+
+        }
+
+    }
+
         
         // --- TASKS ---
         function renderTasks() {
