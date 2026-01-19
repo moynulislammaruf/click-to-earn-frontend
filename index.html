@@ -8,10 +8,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
         /* CSS (No Changes - Gaming Theme) */
-        :root { --primary: #5B945B; --secondary: #5B945B; --bg: #5B945B; --surface: #FFFFFF; --text: #2D3436; --gold: #FFD700; --silver: #b2bec3; --bronze: #e17055; --danger: #ff4757; --success: #00b894; }
+        :root {
+  --primary: #e74c3c;     /* Red */
+  --secondary: #2ecc71;   /* Green */
+  --bg: #f5f6fa;          /* Light background */
+  --surface: #ffffff;     /* Card / surface */
+  --text: #2d3436;        /* Text color */
+
+  --gold: #27ae60;        /* Green gold alternative */
+  --silver: #95a5a6;      /* Neutral silver */
+  --bronze: #c0392b;      /* Dark red */
+  
+  --danger: #ff3838;      /* Strong red */
+  --success: #2ed573;     /* Success green */
+}
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--bg); color: var(--text); padding-bottom: 100px; -webkit-tap-highlight-color: transparent; }
         #app { max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; display: none; }
+
 
         /* LOADER */
         .loader-overlay { position: fixed; inset: 0; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center; flex-direction: column; }
