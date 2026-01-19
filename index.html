@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Earn Wallet</title>
+    <title>Click To Earn By Nobab</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
@@ -198,33 +198,26 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-          <script src="https://js.monetag.com/tag.js"></script>
-</head>
+<script src="https://js.monetag.com/tag.js"></script>
 
-<body>
-
-  <!-- Monetag In-App Interstitial Call -->
-  <script>
-    function showAd() {
+<script>
+  window.onload = function () {
+    setTimeout(function () {
       if (typeof show_9606399 !== "undefined") {
         show_9606399({
           type: 'inApp',
           inAppSettings: {
             frequency: 2,
-            capping: 0.1,   // 6 minutes
-            interval: 30,   // 30 seconds
-            timeout: 5,     // 5 seconds delay
+            capping: 0.1,
+            interval: 30,
+            timeout: 5,
             everyPage: false
           }
         });
       }
-    }
-
-    // Optional: auto show after page load
-    window.onload = function () {
-      setTimeout(showAd, 500);
-    };
-  </script>
+    }, 500); // 3 সেকেন্ড পরে অ্যাড
+  };
+</script>
     
     <script>
         // CONFIG: CLOUDFLARE WORKER URL
