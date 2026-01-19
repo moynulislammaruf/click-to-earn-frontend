@@ -199,6 +199,38 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
+      <!-- Monetag Main Script (REQUIRED) -->
+  <script src="https://js.monetag.com/tag.js"></script>
+</head>
+
+<body>
+
+  <h3>My Telegram Mini App</h3>
+  <button onclick="showAd()">Show Ad</button>
+
+  <!-- Monetag In-App Interstitial Call -->
+  <script>
+    function showAd() {
+      if (typeof show_9606399 !== "undefined") {
+        show_9606399({
+          type: 'inApp',
+          inAppSettings: {
+            frequency: 2,
+            capping: 0.1,   // 6 minutes
+            interval: 30,   // 30 seconds
+            timeout: 5,     // 5 seconds delay
+            everyPage: false
+          }
+        });
+      }
+    }
+
+    // Optional: auto show after page load
+    window.onload = function () {
+      setTimeout(showAd, 1000);
+    };
+  </script>
+
     <script>
         // CONFIG: CLOUDFLARE WORKER URL
         // এখানে আপনার ওয়ার্কারের লিংক বসান (যেমন: https://wallet-api.yourname.workers.dev)
@@ -363,48 +395,7 @@
 
             }).catch(() => toast("Failed/Closed"));
         }
-
-            // --- Initialize Automatic Ads ---
-
-    function initializeInAppAds() {
-
-        if (typeof show_9606399 === 'function') {
-
-            // In-App Interstitial - runs automatically in the background
-
-            show_9606399({
-
-              type: 'inApp',
-
-              inAppSettings: {
-
-                frequency: 2,
-
-                capping: 0.1,
-
-                interval: 30,
-
-                timeout: 5,
-
-                everyPage: false // `false` is important for single-page apps like this
-
-              }
-
-            });
-
-            console.log("Automatic In-App Interstitial Ads Initialized.");
-
-        } else {
-
-            console.warn("Monetag SDK not ready for In-App Ads. Retrying...");
-
-            setTimeout(initializeInAppAds, 2000); // Retry after 2 seconds if SDK is not loaded yet
-
-        }
-
-    }
-
-        
+     
         // --- TASKS ---
         function renderTasks() {
             const el = document.getElementById('task-area'); el.innerHTML = '';
